@@ -25,6 +25,6 @@ class VaccineCard(db.Model):
 
     @validates('cpf')
     def validate_cpf(self, key, cpf):
-        if type(cpf) != str or len(cpf) != 11:
+        if type(cpf) != str or len(cpf) != 11 or not cpf.isdigit():
             raise InvalidCPFError
         return cpf
